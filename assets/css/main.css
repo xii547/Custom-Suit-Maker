@@ -815,7 +815,7 @@ Testimonial CSS
   float: left;
   width: 250px;
   display: block;
-  margin: 10px 25px 15px 25px;
+  margin: 10px 15px 15px 15px;
   text-align: center;
   box-shadow: 0 0 2px #ddd;
   transition: 0.3s;
@@ -1245,4 +1245,26 @@ Testimonial CSS
 .owl-hidden {
   display: none !important;
 }
+
+#mymodal4 {
+  display: none;
+}
+
+#initialsCustom {
+  display: none;
+  position: absolute;
+  width: 90%;
+  z-index: 1;
+}
+.initialsText {
+  position: absolute;
+  left: -5%;
+  top: 40%;
+  width: 100%;
+}
+#initialText {
+  color: red;
+  transform: rotate(-15deg);
+}
+
 /*# sourceMappingURL=main.css.map */
