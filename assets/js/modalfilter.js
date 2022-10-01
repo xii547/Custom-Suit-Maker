@@ -16,6 +16,10 @@ $('.accentVButton').click(function () {
   $('#mymodal3').modal({ show: true })
 })
 
+$('#il2, #il3, #il4').click(function () {
+  $('#mymodal4').modal({ show: true })
+})
+
 $('.modalFilterbtn,#modalclose2').click(function () {
   // $(".fabricModal").addClass("bd-example-modal-lg");
   $('.modalpull').toggleClass('modalpullRight')

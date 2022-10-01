@@ -172,6 +172,36 @@ var Owl = {
         $('.backCarousel').show().addClass('activeC')
       })
 
+      $('#ps1').click(function () {
+        $('#PSDisplay').hide()
+        $('input:radio[name=breastpocketsquare]:checked')[0].checked = false
+      })
+      $('#ps2').click(function () {
+        $('#PSDisplay').show()
+      })
+      $('#ab1').click(function () {
+        $('#BTNDisplay').hide()
+        $('input:radio[name=custombuttonsuit]:checked')[0].checked = false
+      })
+      $('#ab2').click(function () {
+        $('#BTNDisplay').show()
+      })
+
+      $('#bt1').click(function () {
+        $('#BTHDisplay').hide()
+        $('#BALDisplay').hide()
+        $('input:radio[name=btnthread]:checked')[0].checked = false
+        $('input:radio[name=bhole]:checked')[0].checked = false
+      })
+      $('#bt2').click(function () {
+        $('#BTHDisplay').show()
+        $('#BALDisplay').show()
+      })
+      $('#bt3').click(function () {
+        $('#BTHDisplay').hide()
+        $('#BALDisplay').show()
+      })
+
       $('.offC').click(function () {
         $('.backCarousel').hide().removeClass('activeC')
         $('.frontCarousel').show().addClass('activeC')
@@ -198,4 +228,14 @@ function check() {
   document.getElementById('jbpockets').firstChild.checked = true
   document.getElementById('jbsbuttons').firstChild.checked = true
   document.getElementById('jbvents').firstChild.checked = true
+  document.getElementById('bt1').checked = true
+  document.getElementById('ab1').checked = true
+  document.getElementById('ps1').checked = true
 }
+
+function iniFunction() {
+  document.getElementById('initialsCustom').style.display = 'block'
+}
+$('.sbox').click(function () {
+  document.getElementById('initialsCustom').style.display = 'none'
+})

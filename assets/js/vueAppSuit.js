@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    sdata: '',
     styles:
       'imge/front/front/neck_single_breasted+buttons_1+lapel_medium+style_lapel_notch.png',
     bstyles: 'imge/back/neck.png',
@@ -25,72 +26,101 @@ var app = new Vue({
     ventPicked: '',
     pocketPicked: '',
     ilining: '',
+    iliningfilter: '',
     accentbutton: '',
     afont: '',
     mthread: '',
+    squarecolor: '',
+    breastpocketsquare: '',
     bthread: '',
+    btnthread: '',
     bhole: '',
-    bholevariants: [
+    btnlapel: '',
+    inputMessage: '',
+
+    custombutton: '',
+
+    btnthreadvariants: [
       {
         variantId: 'id1',
-        variantImage2:
+        variantImage: 'thread1.png',
+        variantImage5:
           'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#ffffff',
+        variantType: '#EBBE10',
       },
       {
         variantId: 'id2',
-        variantImage2:
+        variantImage: 'thread2.png',
+        variantImage5:
           'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#b3b3b3',
+        variantType: '#DBD7D2',
+      },
+    ],
+    bholevariants: [
+      {
+        variantId: 'id1',
+        variantImage: 'lapel1.png',
+        variantImage2: 'hole1.png',
+        variantImage4:
+          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+        variantType: '#EBBE10',
       },
       {
-        variantId: 'id3',
-        variantImage2:
+        variantId: 'id2',
+        variantImage: 'lapel2.png',
+        variantImage2: 'hole2.png',
+        variantImage4:
           'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#000000',
+        variantType: '#DBD7D2',
       },
-      {
-        variantId: 'id4',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#b80e58',
-      },
-      {
-        variantId: 'id5',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#0ba133',
-      },
-      {
-        variantId: 'id6',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#c20000',
-      },
-      {
-        variantId: 'id7',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#ff7912',
-      },
-      {
-        variantId: 'id8',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#5f1970',
-      },
-      {
-        variantId: 'id9',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#b8f2f2',
-      },
-      {
-        variantId: 'id10',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#4477cf',
-      },
+      // {
+      //   variantId: 'id3',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#000000',
+      // },
+      // {
+      //   variantId: 'id4',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#b80e58',
+      // },
+      // {
+      //   variantId: 'id5',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#0ba133',
+      // },
+      // {
+      //   variantId: 'id6',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#c20000',
+      // },
+      // {
+      //   variantId: 'id7',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#ff7912',
+      // },
+      // {
+      //   variantId: 'id8',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#5f1970',
+      // },
+      // {
+      //   variantId: 'id9',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#b8f2f2',
+      // },
+      // {
+      //   variantId: 'id10',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#4477cf',
+      // },
     ],
     mthreadvariants: [
       {
@@ -105,54 +135,174 @@ var app = new Vue({
           'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
         variantType: '#b3b3b3',
       },
+      // {
+      //   variantId: 'id3',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#000000',
+      // },
+      // {
+      //   variantId: 'id4',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#b80e58',
+      // },
+      // {
+      //   variantId: 'id5',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#0ba133',
+      // },
+      // {
+      //   variantId: 'id6',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#c20000',
+      // },
+      // {
+      //   variantId: 'id7',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#ff7912',
+      // },
+      // {
+      //   variantId: 'id8',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#5f1970',
+      // },
+      // {
+      //   variantId: 'id9',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#b8f2f2',
+      // },
+      // {
+      //   variantId: 'id10',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
+      //   variantType: '#4477cf',
+      // },
+    ],
+
+    breastpocketsquarevariants: [
       {
-        variantId: 'id3',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#000000',
+        variantId: 'bsq1',
+        variantImage: 'imge/accent/handkerchief/1.png',
+        variantType: '#164185',
       },
       {
-        variantId: 'id4',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#b80e58',
+        variantId: 'bsq2',
+        variantImage: 'imge/accent/handkerchief/2.png',
+        variantType: '#BA1C19',
       },
       {
-        variantId: 'id5',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#0ba133',
+        variantId: 'bsq3',
+        variantImage: 'imge/accent/handkerchief/3.png',
+        variantType: '#DEDEDE',
       },
       {
-        variantId: 'id6',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#c20000',
+        variantId: 'bsq4',
+        variantImage: 'imge/accent/handkerchief/4.png',
+        variantType: '#1E2945',
       },
       {
-        variantId: 'id7',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#ff7912',
+        variantId: 'bsq5',
+        variantImage: 'imge/accent/handkerchief/5.png',
+        variantType: '#343331',
       },
       {
-        variantId: 'id8',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#5f1970',
+        variantId: 'bsq6',
+        variantImage: 'imge/accent/handkerchief/6.png',
+        variantType: '#F2BD3B',
       },
       {
-        variantId: 'id9',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#b8f2f2',
+        variantId: 'bsq7',
+        variantImage: 'imge/accent/handkerchief/7.png',
+        variantType: '#847966',
       },
       {
-        variantId: 'id10',
-        variantImage2:
-          'https://d2w9m16hs9jc37.cloudfront.net/images/threads/shadow_extras_thread.png',
-        variantType: '#4477cf',
+        variantId: 'bsq8',
+        variantImage: 'imge/accent/handkerchief/8.png',
+        variantType: '#C0DDE1',
       },
+      {
+        variantId: 'bsq9',
+        variantImage: 'imge/accent/handkerchief/9.png',
+        variantType: '#DD5B65',
+      },
+    ],
+    custombuttonvariants: [
+      {
+        variantId: 'cbv1',
+        variantImage: 'button1.png',
+        variantImage2:
+          'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/1.png',
+        variantType: '#164185',
+      },
+      {
+        variantId: 'cbv2',
+        variantImage: 'button2.png',
+        variantImage2:
+          'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/2.png',
+        variantType: '#BA1C19',
+      },
+      // {
+      //   variantId: 'cbv3',
+      //   variantImage: 'imge/accent/handkerchief/3.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/3.png',
+      //   variantType: '#DEDEDE',
+      // },
+      // {
+      //   variantId: 'cbv4',
+      //   variantImage: 'imge/accent/handkerchief/4.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/4.png',
+      //   variantType: '#1E2945',
+      // },
+      // {
+      //   variantId: 'cbv5',
+      //   variantImage: 'imge/accent/handkerchief/5.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/5.png',
+      //   variantType: '#343331',
+      // },
+      // {
+      //   variantId: 'cbv6',
+      //   variantImage: 'imge/accent/handkerchief/6.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/4.png',
+      //   variantType: '#F2BD3B',
+      // },
+      // {
+      //   variantId: 'cbv7',
+      //   variantImage: 'imge/accent/handkerchief/7.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/50.png',
+      //   variantType: '#847966',
+      // },
+      // {
+      //   variantId: 'cbv8',
+      //   variantImage: 'imge/accent/handkerchief/8.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/51.png',
+      //   variantType: '#C0DDE1',
+      // },
+      // {
+      //   variantId: 'cbv9',
+      //   variantImage: 'imge/accent/handkerchief/8.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/52.png',
+      //   variantType: '#DD5B65',
+      // },
+      // {
+      //   variantId: 'cbv10',
+      //   variantImage: 'imge/accent/handkerchief/9.png',
+      //   variantImage2:
+      //     'https://d2w9m16hs9jc37.cloudfront.net/images/man/suit/buttons_color/53.png',
+      //   variantType: '#DD5B65',
+      // },
     ],
     iliningvariants: [
       {
@@ -180,22 +330,44 @@ var app = new Vue({
           'imge/front/front/neck_double_breasted+buttons_2+lapel_medium+style_lapel_notch.png',
       },
     ],
+    iliningfiltervariants: [
+      {
+        variantId: 'ilf1',
+        variantType: 'type1',
+      },
+      {
+        variantId: 'ilf2',
+        variantType: 'type2',
+      },
+      {
+        variantId: 'ilf3',
+        variantType: 'type3',
+      },
+      {
+        variantId: 'ilf4',
+        variantType: 'type4',
+      },
+    ],
     afontvariants: [
       {
         variantId: 'af1',
         variantImage2: 'imge/accent/font/bold_script.png',
+        variantType: 'Bold Script',
       },
       {
         variantId: 'af2',
         variantImage2: 'imge/accent/font/times_roman.png',
+        variantType: 'arial',
       },
       {
         variantId: 'af3',
         variantImage2: 'imge/accent/font/block.png',
+        variantType: 'Block',
       },
       {
         variantId: 'af4',
         variantImage2: 'imge/accent/font/calligraphy.png',
+        variantType: 'Calligraphy',
       },
     ],
     abuttonvariants: [
@@ -208,6 +380,18 @@ var app = new Vue({
         variantId: 'ab2',
         variantType: 'CUSTOM',
         variantImage2: '',
+      },
+    ],
+    pocketsquarevariants: [
+      {
+        variantId: 'ps1',
+        variantType: 'WITHOUT',
+        variantImage: '',
+      },
+      {
+        variantId: 'ps2',
+        variantType: 'CUSTOM',
+        variantImage: '',
       },
     ],
     bthreadvariants: [
@@ -516,6 +700,47 @@ var app = new Vue({
         this.breastpockets = ''
       }
 
+      this.sdata = this.updateProductACN(this.sdata)
+      this.sdata2 = this.updateProductBCN(this.sdata2)
+      this.sdata3 = this.updateProductDCN(this.sdata3)
+      this.sdata4 = this.updateProductCCN(this.sdata4)
+      var cbuttonV = $("input[name='custombuttonsuit']:checked").val()
+      var bholeV = $("input[name='bhole']:checked").val()
+      var btnthreadV = $("input[name='btnthread']:checked").val()
+      var lapelV = $("input[name='bhole']:checked").attr('id')
+      this.custombutton = this.sdata + cbuttonV
+      this.bhole = this.sdata2 + bholeV
+      this.btnthread = this.sdata3 + btnthreadV
+      this.btnlapel = this.sdata4 + lapelV
+      //accent
+      if (document.getElementById('bt3').checked) {
+        this.bhole = ''
+        this.btnlapel = this.sdata4 + 'lapel1.png'
+      }
+      if (document.getElementById('bt1').checked) {
+        this.bhole = ''
+        this.btnlapel = ''
+        this.btnthread = ''
+      }
+      if (document.getElementById('ab2').checked) {
+        this.custombutton = this.sdata + 'button1.png'
+      } else if (document.getElementById('ab2').checked == false) {
+        this.custombutton = ''
+      }
+
+      if (
+        document.getElementById('bt2').checked == false ||
+        document.getElementById('bt3').checked == false
+      ) {
+        this.bhole = ''
+        this.btnlapel = ''
+        this.btnthread = ''
+      } else if (document.getElementById('bt2').checked) {
+        this.bhole = this.sdata2 + 'hole1.png'
+
+        this.btnthread = this.sdata3 + 'thread1.png'
+      }
+
       //method end
     },
 
@@ -526,7 +751,111 @@ var app = new Vue({
     updateProductB(variantImage) {
       this.bsbuttons = variantImage
     },
+    updateProductSQ(variantImage) {
+      this.breastpocketsquare = variantImage
+    },
+    updateProductPS(variantImage) {
+      this.breastpocketsquare = variantImage
+    },
 
+    updateProductACN(variantImage) {
+      if (document.getElementById('s1').checked) {
+        this.sdata = 'imge/accent/single1button/'
+      } else if (document.getElementById('s2').checked) {
+        this.sdata = 'imge/accent/single2button/'
+      } else if (document.getElementById('s3').checked) {
+        this.sdata = 'imge/accent/single3button/'
+      } else if (document.getElementById('s4').checked) {
+        this.sdata = 'imge/accent/double2button/'
+      } else if (document.getElementById('s5').checked) {
+        this.sdata = 'imge/accent/double4button/'
+      } else if (document.getElementById('s6').checked) {
+        this.sdata = 'imge/accent/double6button/'
+      }
+
+      this.custombutton = this.sdata + variantImage
+
+      return this.sdata
+    },
+    updateProductBCN(variantImage2) {
+      if (document.getElementById('s1').checked) {
+        this.sdata2 = 'imge/accent/single1button/'
+      } else if (document.getElementById('s2').checked) {
+        this.sdata2 = 'imge/accent/single2button/'
+      } else if (document.getElementById('s3').checked) {
+        this.sdata2 = 'imge/accent/single3button/'
+      } else if (document.getElementById('s4').checked) {
+        this.sdata2 = 'imge/accent/double2button/'
+      } else if (document.getElementById('s5').checked) {
+        this.sdata2 = 'imge/accent/double4button/'
+      } else if (document.getElementById('s6').checked) {
+        this.sdata2 = 'imge/accent/double6button/'
+      }
+
+      this.bhole = this.sdata2 + variantImage2
+      if (document.getElementById('bt3').checked) {
+        this.bhole = ''
+      }
+      // if (document.getElementById('bt1').checked) {
+      //   this.bhole = ''
+      //   this.btnlapel = ''
+      //   this.btnthread = ''
+      // }
+
+      return this.sdata2
+    },
+    updateProductCCN(variantImage) {
+      if (document.getElementById('s1').checked) {
+        this.sdata4 = 'imge/accent/single1button/'
+      } else if (document.getElementById('s2').checked) {
+        this.sdata4 = 'imge/accent/single2button/'
+      } else if (document.getElementById('s3').checked) {
+        this.sdata4 = 'imge/accent/single3button/'
+      } else if (document.getElementById('s4').checked) {
+        this.sdata4 = 'imge/accent/double2button/'
+      } else if (document.getElementById('s5').checked) {
+        this.sdata4 = 'imge/accent/double4button/'
+      } else if (document.getElementById('s6').checked) {
+        this.sdata4 = 'imge/accent/double6button/'
+      }
+
+      this.btnlapel = this.sdata4 + variantImage
+      // if (document.getElementById('bt3').checked) {
+      //   this.bhole = ''
+      // } else if (document.getElementById('bt1').checked) {
+      //   this.bhole = ''
+      //   this.btnlapel = ''
+      //   this.btnthread = ''
+      // }
+
+      return this.sdata4
+    },
+    updateProductDCN(variantImage) {
+      if (document.getElementById('s1').checked) {
+        this.sdata3 = 'imge/accent/single1button/'
+      } else if (document.getElementById('s2').checked) {
+        this.sdata3 = 'imge/accent/single2button/'
+      } else if (document.getElementById('s3').checked) {
+        this.sdata3 = 'imge/accent/single3button/'
+      } else if (document.getElementById('s4').checked) {
+        this.sdata3 = 'imge/accent/double2button/'
+      } else if (document.getElementById('s5').checked) {
+        this.sdata3 = 'imge/accent/double4button/'
+      } else if (document.getElementById('s6').checked) {
+        this.sdata3 = 'imge/accent/double6button/'
+      }
+
+      this.btnthread = this.sdata3 + variantImage
+
+      return this.sdata3
+    },
+    updateProductIN(variantType) {
+      document.getElementById('initialText').style.fontFamily = variantType
+    },
+    updateProductINC(variantType) {
+      document.getElementById('initialText').style.webkitTextFillColor =
+        variantType
+    },
     modalFunction() {
       this.stylePicked = $("input[name='styles']:checked").val()
       this.lapelPicked = $("input[name='lapels']:checked").val()
