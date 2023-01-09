@@ -85,6 +85,9 @@
                     <button type="button" class="btn btn-primary customModal styleVButton" data-toggle="slider">
                       Style
                     </button>
+                    <button type="button" class="btn btn-primary customModal styleVButton" data-toggle="modal" data-target="#exampleModal">
+                      Fabric
+                    </button>
                     <button type="button" class="btn btn-primary customModal" data-toggle="modal" data-target="#Mymodal" @click="modalFunction()">
                       Your Current Customization
                     </button>
@@ -1004,7 +1007,7 @@
                                                                                                                     :key="variant.variantId">
 
 
-                                                            <div class="box sbox" id="jbthread"  @click="updateProduct(variant.variantId) " >
+                                                            <div class="box sbox" id="jbthread"  @click="updateProduct(variant.variantImage) " >
 
                                                                 <input type="radio" name="bthread" :id="variant.variantId" class="BThreadvariant" :value="variant.variantImage" >
 
@@ -1029,6 +1032,25 @@
                                                         <div class="box" id="jbhole"  @click="updateProductBCN(variant.variantImage2); updateProductCCN(variant.variantImage)">
 
                                                             <input type="radio" name="bhole" :id="variant.variantImage" class="bhole" :value="variant.variantImage2">
+                                                            
+                                                            <div class="box1">
+
+                                                                <div class="accent-item-img">
+                                                                    
+                                                                    <img style="width: 36px; height:36px;" v-bind:style="{background: variant.variantType}" :src="variant.variantImage4" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <hr>
+                                                <div class="customization-box clearfix" style="display: none;" id="LAPDisplay" >
+                                                    <label class="accent-item-box1"  v-for="variant in bholevariants"
+                                                                                                                    :key="variant.variantId">
+
+                                                        <div class="box" id="jbhole"  @click="updateProductCCN(variant.variantImage)">
+
+                                                            <input type="radio" name="bhole" :id="variant.variantImage" class="blapel" :value="variant.variantImage2">
                                                             
                                                             <div class="box1">
 

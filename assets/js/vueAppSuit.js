@@ -713,9 +713,10 @@ var app = new Vue({
       this.btnthread = this.sdata3 + btnthreadV
       this.btnlapel = this.sdata4 + lapelV
       //accent
+
       if (document.getElementById('bt3').checked) {
         this.bhole = ''
-        this.btnlapel = this.sdata4 + 'lapel1.png'
+        this.btnlapel = this.sdata4 + lapelV
       }
       if (document.getElementById('bt1').checked) {
         this.bhole = ''
@@ -723,24 +724,23 @@ var app = new Vue({
         this.btnthread = ''
       }
       if (document.getElementById('ab2').checked) {
-        this.custombutton = this.sdata + 'button1.png'
+        this.custombutton = this.sdata + cbuttonV
       } else if (document.getElementById('ab2').checked == false) {
         this.custombutton = ''
       }
 
       if (
-        document.getElementById('bt2').checked == false ||
+        document.getElementById('bt2').checked == false &&
         document.getElementById('bt3').checked == false
       ) {
         this.bhole = ''
         this.btnlapel = ''
         this.btnthread = ''
       } else if (document.getElementById('bt2').checked) {
-        this.bhole = this.sdata2 + 'hole1.png'
+        this.bhole = this.sdata2 + bholeV
 
-        this.btnthread = this.sdata3 + 'thread1.png'
+        this.btnthread = this.sdata3 + btnthreadV
       }
-
       //method end
     },
 

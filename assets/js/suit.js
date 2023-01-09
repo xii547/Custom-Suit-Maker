@@ -190,16 +190,19 @@ var Owl = {
       $('#bt1').click(function () {
         $('#BTHDisplay').hide()
         $('#BALDisplay').hide()
+        $('#LAPDisplay').hide()
         $('input:radio[name=btnthread]:checked')[0].checked = false
         $('input:radio[name=bhole]:checked')[0].checked = false
       })
       $('#bt2').click(function () {
         $('#BTHDisplay').show()
         $('#BALDisplay').show()
+        $('#LAPDisplay').hide()
       })
       $('#bt3').click(function () {
         $('#BTHDisplay').hide()
-        $('#BALDisplay').show()
+        $('#BALDisplay').hide()
+        $('#LAPDisplay').show()
       })
 
       $('.offC').click(function () {
@@ -238,4 +241,14 @@ function iniFunction() {
 }
 $('.sbox').click(function () {
   document.getElementById('initialsCustom').style.display = 'none'
+})
+$('#ab2').click(function () {
+  $('.acustombutton').first().prop('checked', true)
+})
+$('#bt2').click(function () {
+  $('.bhole').first().prop('checked', true)
+  $('.btnthread').first().prop('checked', true)
+})
+$('#bt3').click(function () {
+  $('.blapel').first().prop('checked', true)
 })
