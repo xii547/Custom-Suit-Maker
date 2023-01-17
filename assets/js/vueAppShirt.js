@@ -276,7 +276,7 @@ var app = new Vue({
         variantType: 'None',
         variantImage: '',
         variantImageL:
-          'imge/Shirt_Front/Line Art (1)/SHIRTS/Shirt_Final-Version/07 Shirt-SLEEVE_Final/44_shirt-sleev_full-01.png',
+          'imge/Shirt_Front/Line Art (1)/SHIRTS/Shirt_Final-Version/13 Shirt_ELBOW PATCHES_Final/60_shirt-elbow-patch_by-default-01.png',
       },
       {
         variantId: 'ep2',
@@ -284,7 +284,7 @@ var app = new Vue({
         variantImage:
           'imge/Shirt_Back/13.shirt-elbow-patch/shirt-elbow-patch_custom-color/shirt-elbow-patch_custom-color',
         variantImageL:
-          'imge/Shirt_Front/Line Art (1)/SHIRTS/Shirt_Final-Version/07 Shirt-SLEEVE_Final/45_shirt-sleev_half-01.png',
+          'imge/Shirt_Front/Line Art (1)/SHIRTS/Shirt_Final-Version/13 Shirt_ELBOW PATCHES_Final/61_shirt-elbow-patch_custom-color-01.png',
       },
     ],
 
@@ -729,11 +729,18 @@ var app = new Vue({
     updateProductCustomCollar(variantImage) {
       document.getElementById('collar').style.display = 'none'
       document.getElementById('customcollar').style.display = 'block'
+      var selected = document.querySelector(
+        'input[type=radio][name=checkColor]:checked'
+      )
       this.customcollar = variantImage
       if (document.getElementById('csf4').checked) {
         this.modelhead = 'imge/Shirt_Front/Maniquin/head.png'
+        this.modelBhead =
+          'imge/Shirt_Back/2.shirt-collar/2.shirt-collar' + selected.value
       } else {
         this.modelhead = ''
+        this.modelBhead =
+          'imge/Shirt_Back/9.shirt-customize-collar/shirt-customize-collar_all fabrics/shirt-customize-collar_all fabrics-101.png'
       }
     },
     updateProductCustomCollarB(variantImageCB) {
@@ -763,6 +770,11 @@ var app = new Vue({
       this.cuff = ''
       this.ffcuff = ''
       this.bcuff = ''
+      if (document.getElementById('sv2').checked) {
+        document.getElementById('elbowPatch').style.display = 'none'
+      } else {
+        document.getElementById('elbowPatch').style.display = 'block'
+      }
     },
     updateProductElbowPatch(variantImage) {
       var selected = document.querySelector(
@@ -770,6 +782,8 @@ var app = new Vue({
       )
       if (document.getElementById('ep2').checked) {
         this.elbowpatch = variantImage + selected.value
+      } else {
+        this.elbowpatch = ''
       }
     },
     updateProductCuff(variantImage) {

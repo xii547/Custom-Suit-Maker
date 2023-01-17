@@ -161,7 +161,6 @@ body {
   padding: 0;
 }
 .headermenu .mainmneu ul li {
-  display: inline-block;
   position: relative;
   float: left;
 }
