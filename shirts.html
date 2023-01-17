@@ -45,18 +45,22 @@
                             </li>
                             <li class="progressType5" data="4">
                                 <a href="#"><span class="bar5 bar-check"><i class="fa fa-check" aria-hidden="true"></i></span>
-                                    <span>Bottom Style</span></a>
+                                    <span>Back Pleat</span></a>
                             </li>
                             <li class="progressType6" data="5">
                                 <a href="#"><span class="bar6 bar-check"><i class="fa fa-check" aria-hidden="true"></i></span>
-                                    <span>Sleeve</span></a>
+                                    <span>Bottom Style</span></a>
                             </li>
                             <li class="progressType7" data="6">
                                 <a href="#"><span class="bar7 bar-check"><i class="fa fa-check" aria-hidden="true"></i></span>
+                                    <span>Sleeve</span></a>
+                            </li>
+                            <li class="progressType8" data="7">
+                                <a href="#"><span class="bar8 bar-check"><i class="fa fa-check" aria-hidden="true"></i></span>
                                     <span>Cuff</span></a>
                             </li>                           
-                             <li class="progressType8" data="7">
-                                <a href="#"><span class="bar8 bar-check"><i class="fa fa-check" aria-hidden="true"></i></span>
+                             <li class="progressType9" data="8">
+                                <a href="#"><span class="bar9 bar-check"><i class="fa fa-check" aria-hidden="true"></i></span>
                                     <span>Final Selection</span></a>
                             </li>
                             
@@ -129,7 +133,11 @@
                                           <tr>
                                             <td>Placket</td>
                                             <td>{{ placketPicked }}</td>
-                                          </tr>                                      
+                                          </tr>
+                                          <tr>
+                                            <td>Back Pleat</td>
+                                            <td>{{ backpleatPicked }}</td>
+                                          </tr>                                        
                                           <tr>
                                             <td>Tucking</td>
                                             <td>{{ tuckPicked }}</td>
@@ -314,6 +322,37 @@
                             </div>
                         </div> 
 
+                        <div  class="customization-content" id="shirtMbackpleat" >
+                            <div class="ctitle"><strong>Back Pleat</strong></div>
+                            <hr>
+                            <div class="customization-box clearfix" >
+                            <label  class="single-item-box"  v-for="variant in backpleatvariants"
+                                                                                            :key="variant.variantId">
+
+
+
+                                    <div class="box" id="jbackpleat" @click="updateProductBackPleat(variant.variantImage) " >
+
+                                        <input type="radio" name="backpleat" :id="variant.variantId" class="BPTvariants" :value="variant.variantType" >
+
+                                        <div class="box1">   
+
+                                        <div class="single-item-img">
+                                            <img :src="variant.variantImageL" alt="One Button">
+                                        </div>
+                                        <div class="single-content">
+                                            <p class="op-title">{{ variant.variantType }}</p>
+
+                                        </div>
+
+                                        </div>
+
+                                    </div>
+                            </label>
+
+                            </div>
+                        </div> 
+
 
                         <div  class="customization-content" id="shirtMtuck">
                             <div class="ctitle"><strong>Bottom Style</strong></div>
@@ -353,6 +392,33 @@
 
                                     <div class="box" id="jsleeve" @click="updateProductSleeve(variant.variantImage) " >
                                         <input type="radio" name="sleeve" class="SVvariants" :id="variant.variantId" :value = "variant.variantType">
+
+                                        <div class="box1">
+
+                                        <div class="single-item-img">
+                                            <img :src="variant.variantImageL" alt="One Button">
+                                        </div>
+                                        <div class="single-content">
+                                            <p class="op-title">{{ variant.variantType }}</p>
+
+                                        </div>
+
+                                        </div>
+
+                                    </div>
+                            </label>
+
+                            </div>
+
+                            <div class="ctitle"><strong>Elbow Patch</strong></div>
+                            <hr>
+                            <div class="customization-box clearfix" >
+                            <label  class="single-item-box"  v-for="variant in elbowpatchvariants"
+                                                                                            :key="variant.variantId" >
+
+
+                                    <div class="box" id="jelbowpatch" @click="updateProductElbowPatch(variant.variantImage) " >
+                                        <input type="radio" name="elbowpatch" class="EPvariants" :id="variant.variantId" :value = "variant.variantType">
 
                                         <div class="box1">
 
@@ -513,8 +579,22 @@
                                         </div>
                                     </div>
                                 </label>   
-
                                 <label class="single-item-box finalSelection" data="5">
+                                    <div class="box" id="backpleatFinal"  >
+                                        <input type="radio" name="updateF" id="backpleatF" class="updateF"  :value = "backpleatPicked">
+                                        <div class="box1">
+                                            <div class="single-item-img">
+                                                <img src="./assets/img/line-arts/04.jpg" alt="One Button">
+                                            </div>
+                                            <div class="single-content">
+                                                <p class="op-title">{{ backpleatPicked }}</p>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>   
+
+                                <label class="single-item-box finalSelection" data="6">
                                     <div class="box" id="tuckFinal"  >
                                         <input type="radio" name="updateF" id="tuckF" class="updateF"  :value = "tuckPicked">
                                         <div class="box1">
@@ -529,7 +609,7 @@
                                     </div>
                                 </label>  
 
-                                <label class="single-item-box finalSelection" data="6">
+                                <label class="single-item-box finalSelection" data="7">
                                     <div class="box" id="sleeveFinal"  >
                                         <input type="radio" name="updateF" id="sleeveF" class="updateF"  :value = "sleevePicked">
                                         <div class="box1">
@@ -544,7 +624,22 @@
                                     </div>
                                 </label>  
 
-                                <label class="single-item-box finalSelection"  data="7">
+                                <label class="single-item-box finalSelection" data="8">
+                                    <div class="box" id="elbowpatchFinal"  >
+                                        <input type="radio" name="updateF" id="elbowpatchF" class="updateF"  :value = "elbowpatchPicked">
+                                        <div class="box1">
+                                            <div class="single-item-img">
+                                                <img src="./assets/img/line-arts/04.jpg" alt="One Button">
+                                            </div>
+                                            <div class="single-content">
+                                                <p class="op-title">{{ elbowpatchPicked }}</p>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>  
+
+                                <label class="single-item-box finalSelection"  data="9">
                                     <div class="box" id="cuffFinal"  >
                                         <input type="radio" name="updateF" id="cuffF" class="updateF"  :value = "cuffPicked">
                                         <div class="box1">
@@ -560,7 +655,7 @@
                                 </label>        
 
 
-                                <label class="single-item-box finalSelection"  data="8">
+                                <label class="single-item-box finalSelection"  data="10">
                                     <div class="box" id="customcuffFinal"  >
                                         <input type="radio" name="updateF" id="customcuffF" class="updateF"  :value = "customcuffPicked">
                                         <div class="box1">
@@ -674,43 +769,56 @@
                                 </div>  
                             </div>
 
-
-
-
-                            <!-- <div class="backCarousel cDisplay" id="backImg">
+                            <div class="backCarousel cDisplay" id="backImg">
 
                                 <div class="modelBack">
-                                    <img class="modelBImg modelHead" src="imge/back/carlos.png">
-                                    <img class="modelBImg " src="imge/shirt/back/tuck/fit_fit+inside.png">
-                                    <img class="modelBImg modelShoe" src="imge/back/zapatos.png">
-                                    <img class="modelBImg modelPant" src="imge/back/length_long+cut_regular.png">
+                                    <img class="modelBHead modelBImg" :src="modelBhead">
+                                    <img class="modelBImg" id="tuck" :src="shirtBfit">
+                                    <img class="modelBImg" id="untuck" :src="shirtBfullfit">
+                                    <img class="modelBPant modelBImg" :src="modelBpant">
                                 </div>
                                 <div class="bcollar">
                                     <img class="modelBImg" :src="bcollar">
                                 </div>
-                                <div class="btuck">
-                                    <img class="modelImg" :src="btuck">
-                                </div>   
+                                <div class="backpleat">
+                                    <img class="modelBImg" :src="backpleat">
+                                </div>
                                 <div class="bcuffs">
                                     <img class="modelBImg" :src="bcuff">
+                                    <img class="modelBImg" :src="bsleeve">
+                                    <img class="modelBImg" :src="elbowpatch">
                                 </div>  
-                            </div> -->
+                            </div>
                         </div>
-                        <div class="ct-multi-img">
-                            <div class="side-preview offC">
-                                <img src="./assets/img/customization/front-img.jpg" alt="multiple img">
-                                <span>Front Preview</span>
-                            </div>
-                            <div class="side-preview"><img src="./assets/img/customization/back-img.jpg" alt="multiple img">
-                                <span>Side Preview</span>
-                            </div>
-                            <div class="side-preview onC"><img src="./assets/img/customization/back-img.jpg" alt="multiple img">
-                                <span>Back Preview</span>
-                            </div>
-                            <div class="side-preview" data-toggle="modal" data-target="#exampleModal"><img src="./assets/img/Fabric.jpg" alt="multiple img">
+                        <div class="ct-multi-img previewBox">
+                          
+                                    
+                                
+                                <label for="frontPreview" class="model-preview"> 
+                                <input type="radio" name="modelViewSelector"  value="Front View" id="frontPreview">                            
+                                <img src="./assets/img/customization/front-img.jpg" alt="multiple img" class="model-preview-img">                                    
+                                Front Preview</label>
+                               
+
+                                
+                                
+                                <label for="sidePreview" class="model-preview">
+                                    <input type="radio" name="modelViewSelector"  value="Side View" id="sidePreview">
+                                <img src="./assets/img/customization/back-img.jpg" alt="multiple img" class="model-preview-img">
+                                Side Preview</label>
+                                
+                                
+                                
+                                <label for="backPreview" class="model-preview">
+                                    <input type="radio" name="modelViewSelector"  value="Back View" id="backPreview">
+                                <img src="./assets/img/customization/back-img.jpg" alt="multiple img" class="model-preview-img">
+                                Back Preview</label>
+                                
+                            <div class="model-preview" data-toggle="modal" data-target="#exampleModal"><img src="./assets/img/Fabric.jpg" alt="multiple img">
                                 <span>Fabric details</span>
                             </div>
-
+                            </div>
+                            
 
 
 
@@ -732,56 +840,23 @@
                                             </div>
                                             <!-- <div class="containerModal"> -->
                                                 <div class="modalmainContainer">
-                                                      <div class=" filter new black wool plain summer">
+                                                      
+                                                        <label class=" filter new blue wool plain summer">
                                                         <img src="assets/img/fabric-demo/1.jpg">
-                                                        <p>option 1</p>
+                                                        <input type="radio" name="checkColor" id="fabric1 shirtFabric" value="-102.png" checked>
+                                                        <p>Blue</p>
                                                         <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter faves black wool plain summer">
+                                                        </label>
+                                                      
+                                                      
+                                                        <label class=" filter faves white wool plain summer">
                                                         <img src="assets/img/fabric-demo/2.jpg">
-                                                        <p>option 2</p>
+                                                        <input type="radio" name="checkColor" id="fabric2 shirtFabric" value="-101.png">
+                                                        <p>White</p>
                                                         <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter basic black wooldBlends plain summer">
-                                                        <img src="assets/img/fabric-demo/3.jpg">
-                                                        <p>option 3</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter limitedEdition black wool plain yearRound">
-                                                        <img src="assets/img/fabric-demo/4.jpg">
-                                                        <p>option 4</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter premium black wooldBlends plain winter">
-                                                        <img src="assets/img/fabric-demo/5.jpg">
-                                                        <p>option 5</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter premium black wool plain summer">
-                                                        <img src="assets/img/fabric-demo/6.jpg">
-                                                        <p>option 6</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter faves green wool plain summer">
-                                                        <img src="assets/img/fabric-demo/7.jpg">
-                                                        <p>option 7</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter basic black velvet striped winter">
-                                                        <img src="assets/img/fabric-demo/8.jpg">
-                                                        <p>option 8</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter new black wool striped summer">
-                                                        <img src="assets/img/fabric-demo/9.jpg">
-                                                        <p>option 9</p>
-                                                        <p>$200</p>
-                                                      </div>
-                                                      <div class=" filter new blue wool plain yearRound">
-                                                        <img src="assets/img/fabric-demo/10.jpg">
-                                                        <p>option 10</p>
-                                                        <p>$200</p>
-                                                      </div>
+                                                        </label>
+                                                      
+                                                      
                                                     <!-- END GRID -->
                                                 </div>                                               
                                             <!-- </div> -->
@@ -804,25 +879,25 @@
                                             <div class="container">
                                                 <h3>Type</h3>
                                                 <div class="filter-options">
-                                                  <div><input class="checkitem" type="checkbox" name="type" value="new" id="new"><label for="new">new</label></div>
-                                                  <div><input class="checkitem" type="checkbox" name="type" value="faves" id="faves"><label for="faves">faves</label></div>
-                                                  <div><input class="checkitem" type="checkbox" name="type" value="basic" id="basic"><label for="basic">basic</label></div>
-                                                  <div><input class="checkitem" type="checkbox" name="type" value="limitedEdition" id="limitedEdition"><label for="limitedEdition">limited edition</label></div>
+                                                  <div><input class="checkitem" type="checkbox" name="checkitem" value="new" id="new"><label for="new">new</label></div>
+                                                  <div><input class="checkitem" type="checkbox" name="checkitem" value="faves" id="faves"><label for="faves">faves</label></div>
+                                                  <div><input class="checkitem" type="checkbox" name="checkitem" value="basic" id="basic"><label for="basic">basic</label></div>
+                                                  <div><input class="checkitem" type="checkbox" name="checkitem" value="limitedEdition" id="limitedEdition"><label for="limitedEdition">limited edition</label></div>
                                                   <div><input class="checkitem" type="checkbox" name="type" value="premium" id="premium"><label for="premium">premium</label></div>
                                                 </div>
                                           
                                                 <h3>Color</h3>
                                                 <div class="filter-options">
-                                                  <div><input class="checkitem" type="radio" name="color" value="black" id="black"><label for="black">black</label></div>
-                                                  <div><input class="checkitem" type="radio" name="color" value="blue" id="blue"><label for="blue">blue</label></div>
-                                                  <div><input class="checkitem" type="radio" name="color" value="grey" id="grey"><label for="grey">grey</label></div>
-                                                  <div><input class="checkitem" type="radio" name="color" value="brown" id="brown"><label for="brown">brown</label></div>
-                                                  <div><input class="checkitem" type="radio" name="color" value="white" id="white"><label for="white">white</label></div>
-                                                  <div><input class="checkitem" type="radio" name="color" value="beige" id="beige"><label for="beige">beige</label></div>
+                                                  <!-- <div><input class="checkitem" type="radio" name="color" value="black" id="black"><label for="black">black</label></div> -->
+                                                  <div><input class="checkitem" type="radio" name="checkitem" value="-101.png" id="blue "><label for="blue">blue</label></div>
+                                                  <!-- <div><input class="checkitem" type="radio" name="color" value="grey" id="grey"><label for="grey">grey</label></div>
+                                                  <div><input class="checkitem" type="radio" name="color" value="brown" id="brown"><label for="brown">brown</label></div> -->
+                                                  <div><input class="checkitem" type="radio" name="checkitem" value="-102.png" id="white "><label for="white">white</label></div>
+                                                  <!-- <div><input class="checkitem" type="radio" name="color" value="beige" id="beige"><label for="beige">beige</label></div>
                                                   <div><input class="checkitem" type="radio" name="color" value="yellow" id="yellow"><label for="yellow">yellow</label></div>
                                                   <div><input class="checkitem" type="radio" name="color" value="pink" id="pink"><label for="pink">pink</label></div>
                                                   <div><input class="checkitem" type="radio" name="color" value="green" id="green"><label for="green">green</label></div>
-                                                  <div><input class="checkitem" type="radio" name="color" value="red" id="red"><label for="red">red</label></div>
+                                                  <div><input class="checkitem" type="radio" name="color" value="red" id="red"><label for="red">red</label></div> -->
                                                 </div>
                                           
                                                 <h3>Material</h3>
@@ -865,18 +940,6 @@
                                       </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>

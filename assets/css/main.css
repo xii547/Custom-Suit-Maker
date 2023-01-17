@@ -805,7 +805,10 @@ Testimonial CSS
   font-size: 15px;
   margin-top: 10px;
 }
-
+.side-preview {
+  min-height: 250px;
+  cursor: pointer !important;
+}
 .single-item-box {
   float: left;
   width: 15%;
@@ -870,6 +873,9 @@ Testimonial CSS
   width: 50%;
   overflow: hidden;
 }
+.previewBox {
+  height: 800px;
+}
 
 #frontImg,
 #backImg {
@@ -882,7 +888,8 @@ Testimonial CSS
   left: -20%;
   width: 100%;
 }
-.modelPant {
+.modelPant,
+.modelBPant {
   z-index: -2;
 }
 .modelBImg {
@@ -893,6 +900,11 @@ Testimonial CSS
 }
 
 .box input[type='radio'] {
+  display: none;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
   display: none;
 }
 
@@ -962,11 +974,16 @@ Testimonial CSS
   display: flex;
 }
 
-.side-preview {
-  width: 90px;
+.model-preview {
+  width: 100%;
   font-size: 12px;
   text-align: center;
   cursor: pointer;
+  height: 25%;
+}
+.model-preview-img {
+  cursor: pointer;
+  height: 100%;
 }
 
 .customization-slide .owl-nav {

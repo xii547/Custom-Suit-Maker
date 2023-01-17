@@ -51,27 +51,34 @@ var Owl = {
           )
         } else if (hasClass(el[1], 'active')) {
           $('.bar1 , .bar2').addClass('active')
-          $('.bar3 , .bar4 , .bar5 , .bar6, .bar7, .bar8').removeClass('active')
-        } else if (hasClass(el[2], 'active')) {
-          $('.bar1 , .bar2 , .bar3 ').addClass('active')
-          $('.bar4 , .bar5 , .bar6, .bar7, .bar8').removeClass('active')
-        } else if (hasClass(el[3], 'active')) {
-          $('.bar1 , .bar2 , .bar3 , .bar4').addClass('active')
-          $('.bar5 , .bar6, .bar7, .bar8').removeClass('active')
-        } else if (hasClass(el[4], 'active')) {
-          $('.bar1 , .bar2 , .bar3 , .bar4 , .bar5').addClass('active')
-          $('.bar6, .bar7, .bar8').removeClass('active')
-        } else if (hasClass(el[5], 'active')) {
-          $('.bar1 , .bar2 , .bar3 , .bar4, .bar5, .bar6').addClass('active')
-          $('.bar7, .bar8').removeClass('active')
-        } else if (hasClass(el[6], 'active')) {
-          $('.bar1 , .bar2 , .bar3 , .bar4 ,.bar5, .bar6, .bar7').addClass(
+          $('.bar3 , .bar4 , .bar5 , .bar6, .bar7, .bar8, .bar9').removeClass(
             'active'
           )
-          $('.bar8').removeClass('active')
+        } else if (hasClass(el[2], 'active')) {
+          $('.bar1 , .bar2 , .bar3 ').addClass('active')
+          $('.bar4 , .bar5 , .bar6, .bar7, .bar8, .bar9').removeClass('active')
+        } else if (hasClass(el[3], 'active')) {
+          $('.bar1 , .bar2 , .bar3 , .bar4').addClass('active')
+          $('.bar5 , .bar6, .bar7, .bar8, .bar9').removeClass('active')
+        } else if (hasClass(el[4], 'active')) {
+          $('.bar1 , .bar2 , .bar3 , .bar4 , .bar5').addClass('active')
+          $('.bar6, .bar7, .bar8, .bar9').removeClass('active')
+        } else if (hasClass(el[5], 'active')) {
+          $('.bar1 , .bar2 , .bar3 , .bar4, .bar5, .bar6').addClass('active')
+          $('.bar7, .bar8, .bar9').removeClass('active')
+        } else if (hasClass(el[6], 'active')) {
+          $('.bar1 , .bar2 , .bar3 , .bar4, .bar5, .bar6, .bar7').addClass(
+            'active'
+          )
+          $('.bar8, .bar9').removeClass('active')
+        } else if (hasClass(el[7], 'active')) {
+          $(
+            '.bar1 , .bar2 , .bar3 , .bar4 ,.bar5, .bar6, .bar7, .bar8'
+          ).addClass('active')
+          $('.bar9').removeClass('active')
           if (document.getElementById('sv2').checked) {
             $(
-              '.bar1 , .bar2 , .bar3 , .bar4 , .bar5 , .bar6, .bar7, .bar8'
+              '.bar1 , .bar2 , .bar3 , .bar4 , .bar5 , .bar6, .bar7, .bar8, .bar9'
             ).addClass('active')
             $('.owlNext').hide()
             $('#owlSubmit').show()
@@ -86,7 +93,7 @@ var Owl = {
           }
         } else if (hasClass(el[7], 'active')) {
           $(
-            '.bar1 , .bar2 , .bar3 , .bar4 , .bar5 , .bar6, .bar7, .bar8'
+            '.bar1 , .bar2 , .bar3 , .bar4 , .bar5 , .bar6, .bar7, .bar8, .bar9'
           ).addClass('active')
           $('.owlNext').hide()
           $('#owlSubmit').show()
@@ -102,42 +109,19 @@ var Owl = {
       })
 
       $('#sv2').click(function () {
-        $('.owl-item:nth-child(7)').hide()
+        $('.owl-item:nth-child(8)').hide()
         $('.progressType7 > a').hide()
-        $('.finalSelection:nth-child(8)').hide()
         $('.finalSelection:nth-child(9)').hide()
+        $('.finalSelection:nth-child(10)').hide()
         $('.cuffstyle').hide()
       })
       $('#sv1').click(function () {
-        $('.owl-item:nth-child(7)').show()
-        $('.progressType7 > a').show()
-        $('.finalSelection:nth-child(8)').show()
+        $('.owl-item:nth-child(8)').show()
+        $('.progressType8 > a').show()
         $('.finalSelection:nth-child(9)').show()
+        $('.finalSelection:nth-child(10)').show()
         $('.cuffstyle').show()
       })
-
-      // $('.owlNext').click(function () {
-      //   if (hasClass(el[4], 'active')) {
-      //     if (document.getElementById('sv2').checked) {
-      //       $('.bar1 , .bar2 , .bar3 , .bar4 ,.bar5, .bar6, .bar7').addClass(
-      //         'active'
-      //       )
-      //       $('.bar8, .bar9, .bar10').removeClass('active')
-      //       $('.bar5').addClass('activeC')
-      //     }
-      //   }
-      // })
-      // $('.owlPrev').click(function () {
-      //   if (hasClass(el[6], 'active')) {
-      //     if (document.getElementById('sv2').checked) {
-      //       $('.bar1 , .bar2 , .bar3 , .bar4 ,.bar5, .bar6, .bar7').addClass(
-      //         'active'
-      //       )
-      //       $('.bar5').removeClass('noClick')
-      //       $('.bar8, .bar9, .bar10').removeClass('active')
-      //     }
-      //   }
-      // })
 
       $('.owlSubmit').click(function () {
         app.modalFunction()
@@ -162,6 +146,16 @@ var Owl = {
         $('#owlUpdate').hide()
       })
 
+      $('.model-preview').click(function () {
+        if ($('#backPreview').is(':checked')) {
+          $('.frontCarousel').hide().removeClass('activeC')
+          $('.backCarousel').show().addClass('activeC')
+        } else if ($('#frontPreview').is(':checked')) {
+          $('.backCarousel').hide().removeClass('activeC')
+          $('.frontCarousel').show().addClass('activeC')
+        }
+      })
+
       $('#owlUpdate').click(function () {
         $('#owlPrev').hide()
         $('#owlUpdate').hide()
@@ -178,18 +172,18 @@ var Owl = {
         }
 
         if (document.getElementById('sleeveF').checked) {
-          $('#myCarousel').trigger('to.owl.carousel', 5)
+          $('#myCarousel').trigger('to.owl.carousel', 6)
         }
 
         if (document.getElementById('cuffF').checked) {
-          $('#myCarousel').trigger('to.owl.carousel', 6)
+          $('#myCarousel').trigger('to.owl.carousel', 7)
         }
         if (document.getElementById('customcuffF').checked) {
-          $('#myCarousel').trigger('to.owl.carousel', 6)
+          $('#myCarousel').trigger('to.owl.carousel', 7)
         }
 
         if (document.getElementById('tuckF').checked) {
-          $('#myCarousel').trigger('to.owl.carousel', 4)
+          $('#myCarousel').trigger('to.owl.carousel', 5)
         }
 
         if (document.getElementById('chestpocketF').checked) {
@@ -198,28 +192,23 @@ var Owl = {
         if (document.getElementById('placketF').checked) {
           $('#myCarousel').trigger('to.owl.carousel', 3)
         }
+        if (document.getElementById('backpleatF').checked) {
+          $('#myCarousel').trigger('to.owl.carousel', 4)
+        }
       })
 
       $('input[type="radio"]').click(function () {
         $('.owlUpdate').hide()
       })
-
-      $('.owlPrev, .progress-reports-bar').click(function () {
-        $('#owlNext').show()
-        $('#owlSubmit').hide()
-        $('#owlUpdate').hide()
-      })
-
-      $('.onC').click(function () {
-        $('.frontCarousel').hide().removeClass('activeC')
-        $('.backCarousel').show().addClass('activeC')
-      })
-
-      $('.offC').click(function () {
-        $('.backCarousel').hide().removeClass('activeC')
-        $('.frontCarousel').show().addClass('activeC')
-      })
     })
+
+    // if (document.getElementById('frontPreview').checked) {
+    //   $('.backCarousel').hide().removeClass('activeC')
+    //   $('.frontCarousel').show().addClass('activeC')
+    // } else if (document.getElementById('backPreview').checked) {
+    //   $('.frontCarousel').hide().removeClass('activeC')
+    //   $('.backCarousel').show().addClass('activeC')
+    // }
   },
 }
 
